@@ -1,5 +1,7 @@
 body{
     background: aliceblue;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 h1{
 font-family: 'Courier New', Courier, monospace;
