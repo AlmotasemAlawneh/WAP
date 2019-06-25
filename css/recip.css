@@ -26,12 +26,12 @@ div>h3{
     text-decoration: underline;
 }
 #header,#ingredients,#directions,#comments{
-    background-image:url("images/silverware.jpg");
+    background-image:url("../images/silverware.jpg");
 	border-bottom: 1px solid black;
 }
-#directions ul{
-    list-style-image:url("images/pie_icon.gif")
-}
+ul {
+    list-style-image: url('../images/pie_icon.gif');
+  }
 #comments p{
     background-color:#cabe5775;
     font-style: italic;
