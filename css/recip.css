@@ -10,6 +10,8 @@ div>h3{
     text-decoration: underline;
     text-align: left;
     font-size: x-large;
+    letter-spacing: 0.25em;
+    display: inline;
 }
 #mainTitle{
     background-color: lightgray;
@@ -33,7 +35,7 @@ ul {
     list-style-image: url('../images/pie_icon.gif');
   }
 #comments p{
-    background-color:#cabe5775;
+    background-color:#FFFFA8;
     font-style: italic;
 }
 .author{
