@@ -121,7 +121,8 @@
                            
                                  <label for="contact-home-address"><span>Home Address (No P.O. Boxes) <span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
                                  <div class="validation-wrapper">
-                                    <input id="contact-home-address" type="text" aria-autocomplete="both" placeholder="No P.O. Boxes" maxlength="120"  class="" aria-expanded="false" value="" autocomplete="off" title="Please ensure your Street Address consists of more than three characters." required pattern="^\w{3,}$"/>
+                                    <input id="contact-home-address" type="text" aria-autocomplete="both" placeholder="No P.O. Boxes" maxlength="120"  class="" aria-expanded="false" value="" autocomplete="off" title="Please ensure your Street Address consists of more than three characters." required pattern="^\w{3,}$" required/>
+                                  
                                  </div>
                          
                         </div>
@@ -129,7 +130,7 @@
                        
                                  <label for="contact-apartment"><span>Suite/Apt. # </span><span class="sub-label"><span>(if Applicable)</span></span></label>
                                  <div class="validation-wrapper">
-                                    <input autocomplete="off"  id="contact-apartment" maxlength="15" class="" type="text" value="" placeholder="Suite/Apt">
+                                    <input autocomplete="off"  id="contact-apartment" maxlength="15" class="" type="text" value="" placeholder="Suite/Apt" />
                                  </div>
                            
                         </div>
@@ -143,14 +144,15 @@
                        
                            <label for="contact-email"><span>Email Address <span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
                            <div class="validation-wrapper">
-                              <input autocomplete="off"  id="contact-email" maxlength="40"  class="" type="text" value="" placeholder="Email@Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required title="Please enter your Email Address."/>
+                              <input autocomplete="off"  id="contact-email" maxlength="40"  class="" type="text" value="" placeholder="Email@Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required title="Please enter your Email Address." />
                            </div>
                      
                   </div>
                   <div class="text-input small-12 medium-6 columns required">
                      
                            <label for="contact-phone"><span>Primary Phone Number <span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
-                           <div class="validation-wrapper"><input autocomplete="off"  id="contact-phone"  class="" type="tel" placeholder="(___) ___-____" required pattern="^\(\d{3}\)\s\d{3}-\d{4}$" title="Please enter your Primary Phone Number. form (XXX) XXX-XXXX x is digite">
+                           <div class="validation-wrapper">
+                               <input autocomplete="off"  id="contact-phone"  class="" type="tel" placeholder="(___) ___-____" required pattern="^\(\d{3}\)\s\d{3}-\d{4}$" title="Please enter your Primary Phone Number. form (XXX) XXX-XXXX x is digite" />
                            </div>
                        
                   </div>
@@ -167,7 +169,7 @@
                 
                      <div class="validation-wrapper">
                         <fieldset class="group-checkbox"><span class="undefined nobr">
-                            <input id="authorized-user.confirmation" type="checkbox" value="confirmation"/><label for="authorized-user.confirmation"><span><span><b><span>Yes</span>!</b> I would like to add an Authorized User (AU) to my account and receive a second card with their name on it.</span></span></label></span></fieldset>
+                            <input id="authorized-user.confirmation" type="checkbox" value="confirmation" /><label for="authorized-user.confirmation"><span><span><b><span>Yes</span>!</b> I would like to add an Authorized User (AU) to my account and receive a second card with their name on it.</span></span></label></span></fieldset>
                      </div>
                  
                </div>
@@ -206,7 +208,7 @@
                         <fieldset class="">
                            <legend id="financial-live"><span><span>Do you: (Optional)</span></span></legend>
                            <span class="undefined nobr">
-                               <input id="financial-live.own" name="financial-live" type="radio" value="own"/><label for="financial-live.own"><span><span>Own</span></span></label></span><span class="undefined nobr"><input id="financial-live.rent" name="financial-live" type="radio" value="rent"/><label for="financial-live.rent"><span><span>Rent</span></span></label></span><span class="undefined nobr"><input id="financial-live.parents" name="financial-live" type="radio" value="parents"/><label for="financial-live.parents"><span><span>Live with parents</span></span></label></span><span class="undefined nobr"><input id="financial-live.other" name="financial-live" type="radio" value="other" checked /><label for="financial-live.other"><span><span>Other</span></span></label></span>
+                               <input id="financial-live.own" name="financial-live" type="radio" value="own" /><label for="financial-live.own"><span><span>Own</span></span></label></span><span class="undefined nobr"><input id="financial-live.rent" name="financial-live" type="radio" value="rent"/><label for="financial-live.rent"><span><span>Rent</span></span></label></span><span class="undefined nobr"><input id="financial-live.parents" name="financial-live" type="radio" value="parents"/><label for="financial-live.parents"><span><span>Live with parents</span></span></label></span><span class="undefined nobr"><input id="financial-live.other" name="financial-live" type="radio" value="other" checked /><label for="financial-live.other"><span><span>Other</span></span></label></span>
                         </fieldset>
                      </div>
                   
@@ -216,7 +218,8 @@
                      
                            <label for="financial-annual-income"><span>Your Annual Income (Before Taxes) <span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
                            <div class="validation-wrapper">
-                              <div class="currency"><span class="currency-sign">$</span><input autocomplete="off"  pattern="[0-9]*" id="financial-annual-income" maxlength="7"  class="" type="tel" value="" required placeholder="Your Annual Income"></div>
+                              <div class="currency"><span class="currency-sign">$</span>
+                                <input autocomplete="off"  pattern="[0-9]*" id="financial-annual-income" maxlength="7"  class="" type="tel" value="" required placeholder="Your Annual Income" /></div>
                            </div>
                      
                   </div>
