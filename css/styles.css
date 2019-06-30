@@ -1748,7 +1748,6 @@ select {
 }
 
 
-
 select:disabled {
 	background-color: #e7e3e6;
 	cursor: not-allowed
@@ -2559,31 +2558,6 @@ select[multiple] {
 	margin-bottom: 0
 }
 
-@media screen and (min-width:40em) {
-	.button-group.stacked-for-small .button {
-		-ms-flex: 1 1 0px;
-		flex: 1 1 0px;
-		margin-bottom: 0
-	}
-}
-
-@media screen and (min-width:64em) {
-	.button-group.stacked-for-medium .button {
-		-ms-flex: 1 1 0px;
-		flex: 1 1 0px;
-		margin-bottom: 0
-	}
-}
-
-@media screen and (max-width:39.9375em) {
-	.button-group.stacked-for-small.expanded {
-		display: block
-	}
-	.button-group.stacked-for-small.expanded .button {
-		display: block;
-		margin-right: 0
-	}
-}
 
 .callout {
 	margin: 0 0 1rem;
@@ -2742,7 +2716,7 @@ select[multiple] {
 	justify-content: flex-start
 }
 
-@media screen and (min-width:40em) {
+@media screen  {
 	.menu.medium-horizontal {
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap
@@ -2768,7 +2742,7 @@ select[multiple] {
 	}
 }
 
-@media screen and (min-width:64em) {
+@media screen  {
 	.menu.large-horizontal {
 		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap
@@ -2961,7 +2935,7 @@ select[multiple] {
 	display: inline-block
 }
 
-@media screen and (min-width:40em) {
+@media screen {
 	.pagination li {
 		display: inline-block
 	}
@@ -3212,7 +3186,7 @@ table tbody th {
 	padding: .5rem .625rem .625rem
 }
 
-@media screen and (max-width:63.9375em) {
+@media screen  {
 	table.stack tfoot,
 	table.stack thead {
 		display: none
@@ -3265,64 +3239,61 @@ table.hover tbody tr:nth-of-type(2n):hover {
 	visibility: hidden
 }
 
-@media screen and (max-width:39.9375em) {
+@media screen {
 	.hide-for-small-only {
 		display: none!important
 	}
 }
 
-@media screen and (max-width:0em),
-screen and (min-width:40em) {
+@media screen  {
 	.show-for-small-only {
 		display: none!important
 	}
 }
 
-@media screen and (min-width:40em) {
+@media screen {
 	.hide-for-medium {
 		display: none!important
 	}
 }
 
-@media screen and (max-width:39.9375em) {
+@media screen  {
 	.show-for-medium {
 		display: none!important
 	}
 }
 
-@media screen and (min-width:40em) and (max-width:63.9375em) {
+@media screen  {
 	.hide-for-medium-only {
 		display: none!important
 	}
 }
 
-@media screen and (max-width:39.9375em),
-screen and (min-width:64em) {
+@media screen  {
 	.show-for-medium-only {
 		display: none!important
 	}
 }
 
-@media screen and (min-width:64em) {
+@media screen  {
 	.hide-for-large {
 		display: none!important
 	}
 }
 
-@media screen and (max-width:63.9375em) {
+@media screen {
 	.show-for-large {
 		display: none!important
 	}
 }
 
-@media screen and (min-width:64em) and (max-width:74.9375em) {
+@media screen {
 	.hide-for-large-only {
 		display: none!important
 	}
 }
 
-@media screen and (max-width:63.9375em),
-screen and (min-width:75em) {
+@media screen  {
 	.show-for-large-only {
 		display: none!important
 	}
@@ -3531,7 +3502,7 @@ screen and (min-width:75em) {
 	}
 }
 
-@media screen and (min-width:64em) {
+@media screen  {
 	.large-order-1 {
 		-ms-flex-order: 1;
 		order: 1
@@ -3588,7 +3559,7 @@ screen and (min-width:75em) {
 	padding-right: 20px
 }
 
-@media screen and (min-width:40em) {
+@media screen {
 	.medium-collapse-edges>.column:first-child,
 	.medium-collapse-edges>.columns:first-child {
 		padding-left: 0
@@ -3607,7 +3578,7 @@ screen and (min-width:75em) {
 	}
 }
 
-@media screen and (min-width:64em) {
+@media screen  {
 	.large-collapse-edges>.column:first-child,
 	.large-collapse-edges>.columns:first-child {
 		padding-left: 0
@@ -10934,7 +10905,7 @@ table .warning {
 	max-width: 50em
 }
 
-@media screen and (max-width:39.9375em) {
+@media screen {
 	.decision-page {
 		margin: 0 auto;
 		padding: 17px 20px 0
@@ -11304,7 +11275,7 @@ body.modal-open {
 	width: 100%
 }
 
-@media screen and (max-width:39.9375em) {
+@media screen{
 	.privacy-drawers-wrapper .drawer-labels {
 		font-size: .875em
 	}
@@ -11346,7 +11317,7 @@ body.modal-open {
 	padding-left: 5px
 }
 
-@media screen and (max-width:39.9375em) {
+@media screen {
 	.privacy-drawers-wrapper .drawer-content {
 		font-size: .75em
 	}
@@ -11370,7 +11341,7 @@ body.modal-open {
 	padding-left: 5px
 }
 
-@media screen and (max-width:39.9375em) {
+@media screen  {
 	.app-tncs-content {
 		font-size: .75em
 	}
