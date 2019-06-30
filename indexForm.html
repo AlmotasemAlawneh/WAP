@@ -121,7 +121,7 @@
                            
                                  <label for="contact-home-address"><span>Home Address (No P.O. Boxes) <span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
                                  <div class="validation-wrapper">
-                                    <input id="contact-home-address" type="text" aria-autocomplete="both" aria-owns="googleAutoCompleteResult" placeholder="No P.O. Boxes" maxlength="120" aria-required="true" class="" aria-expanded="false" value="" autocomplete="off" title="Please ensure your Street Address consists of more than three characters." required pattern="^\w{3,}$">
+                                    <input id="contact-home-address" type="text" aria-autocomplete="both" placeholder="No P.O. Boxes" maxlength="120"  class="" aria-expanded="false" value="" autocomplete="off" title="Please ensure your Street Address consists of more than three characters." required pattern="^\w{3,}$">
                                  </div>
                          
                         </div>
@@ -150,7 +150,7 @@
                   <div class="text-input small-12 medium-6 columns required">
                      
                            <label for="contact-phone"><span>Primary Phone Number <span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
-                           <div class="validation-wrapper"><input autocomplete="off"  id="contact-phone" aria-required="true" class="" type="tel" placeholder="(___) ___-____" required pattern="^\(\d{3}\)\s\d{3}-\d{4}$" title="Please enter your Primary Phone Number. form (XXX) XXX-XXXX" x is digite>
+                           <div class="validation-wrapper"><input autocomplete="off"  id="contact-phone" aria-required="true" class="" type="tel" placeholder="(___) ___-____" required pattern="^\(\d{3}\)\s\d{3}-\d{4}$" title="Please enter your Primary Phone Number. form (XXX) XXX-XXXX x is digite">
                            </div>
                        
                   </div>
@@ -160,7 +160,7 @@
          <section class="row column" id="entry-authorized">
             <header class="row column text-center">
                <h2><span>Authorized User</span></h2>
-               <p class="help" aria-label="Tell me more details about Authorized User" aria-describedby="sr-tooltip-entry-authorized-header"><span class="has-tip small-show-left" data-tooltip="An authorized user receives their own card that is attached to your account. Any purchases or cash advances made using this card will show up on your monthly statement." aria-hidden="true"><i class="oi-question outline"></i></span><span id="sr-tooltip-entry-authorized-header" class="show-for-sr">An authorized user receives their own card that is attached to your account. Any purchases or cash advances made using this card will show up on your monthly statement.</span></p>
+               <p class="help" aria-describedby="sr-tooltip-entry-authorized-header"><span class="has-tip small-show-left" data-tooltip="An authorized user receives their own card that is attached to your account. Any purchases or cash advances made using this card will show up on your monthly statement." aria-hidden="true"><i class="oi-question outline"></i></span><span id="sr-tooltip-entry-authorized-header" class="show-for-sr">An authorized user receives their own card that is attached to your account. Any purchases or cash advances made using this card will show up on your monthly statement.</span></p>
             </header>
             <div>
                <div class="options-input row column">
@@ -220,7 +220,7 @@
                   </div>
                   <div class="currency-input small-12 medium-6 columns required">
                      
-                        <p class="help" aria-label="Tell me more details about entering Other Household Income (Before Taxes)" aria-describedby="sr-tooltip-financial-other-income"><span class="has-tip small-show-left" data-tooltip="Examples of other income could include: spousal income, rental income, spousal support or child support." aria-hidden="true"><i class="oi-question outline"></i></span><span id="sr-tooltip-financial-other-income" class="show-for-sr">Examples of other income could include: spousal income, rental income, spousal support or child support.</span></p>
+                        <p class="help" aria-describedby="sr-tooltip-financial-other-income"><span class="has-tip small-show-left" data-tooltip="Examples of other income could include: spousal income, rental income, spousal support or child support." aria-hidden="true"><i class="oi-question outline"></i></span><span id="sr-tooltip-financial-other-income" class="show-for-sr">Examples of other income could include: spousal income, rental income, spousal support or child support.</span></p>
                      
                            <label for="financial-other-income"><span>Other Household Income (Before Taxes)<span style="color: red"> *</span></span><span class="show-for-sr"><span>Required</span></span></label>
                            <div class="validation-wrapper">
@@ -244,7 +244,11 @@
                    
                         <label for="financial-monthly-rent">
                            <span>
-                              Monthly Rent/Mortgage <span class="sub-label"><span>(Optional)</span></span>
+                              Monthly Rent/Mortgage 
+                            <span class="sub-label">
+                                <span>(Optional)</span>
+                            </span>
+                        </span>
                         </label>
                         <div class="validation-wrapper"><div class="currency"><span class="currency-sign">$</span><input autocomplete="off"  pattern="[0-9]*" id="financial-monthly-rent" maxlength="7" aria-required="false" class="" type="tel" value="" placeholder="Monthly Rent/Mortgage" title="Monthly Rent/Mortgage"></div></div>
                     
