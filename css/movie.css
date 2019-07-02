@@ -122,4 +122,42 @@ body{
 	margin: 0px;
 	padding: 0px;
 }
-input[text]{}
+.lab5{position:relative;margin-top:0em;}
+.w3-btn,.w3-button{border:none;display:inline-block;outline:0;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none} 
+.w3-disabled,.w3-btn:disabled,.w3-button:disabled{cursor:not-allowed;opacity:0.3}.w3-disabled *,:disabled *{pointer-events:none}
+.w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
+.w3-button:hover{color:#000!important;background-color:#ccc!important}
+
+.lab5 button {
+position: absolute;
+top: 32%;
+}
+
+.w3-display-right {right:0}
+.w3-display-left {left:0}
+.showMessage{
+	display: block;
+}
+
+.lab5 {
+
+	-webkit-animation: NAME-YOUR-ANIMATION 1s infinite;  /* Safari 4+ */
+	-moz-animation: NAME-YOUR-ANIMATION 1s infinite;  /* Fx 5+ */
+	-o-animation: NAME-YOUR-ANIMATION 1s infinite;  /* Opera 12+ */
+	animation: NAME-YOUR-ANIMATION 1s infinite;  /* IE 10+, Fx 29+ */
+  }
+  
+  @-webkit-keyframes NAME-YOUR-ANIMATION {
+	0%, 49% {
+	  background-color: rgb(117, 209, 63);
+	  border: 3px solid #e50000;
+	}
+	50%, 100% {
+	  background-color: #e50000;
+	  border: 3px solid rgb(117, 209, 63);
+	}
+  }
+  .hideAd{
+	display: none;
+}
