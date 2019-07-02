@@ -4,11 +4,6 @@ window.onload = function() {
    Closead.onclick= function (){
     var Message=document.getElementById('mssage');
     document.getElementById("mssage").className = "showMessage";
-    setTimeout(closeTheAdd,3000);
+    setTimeout(()=> document.getElementById("Ads").className="hideAd",3000);
    }
   };
-
-  function closeTheAdd(){
-        document.getElementById("Ads").className="hideAd";
-    
-  }
