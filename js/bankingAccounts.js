@@ -1,7 +1,4 @@
 
-
-let accountList = [];
-
 var AccountFactory = function () {
     let name="", deposit=0; //private data
     function createAccount() { //private inner function
@@ -21,18 +18,10 @@ var AccountFactory = function () {
 window.onload = () => {
     document.getElementById("addDeposit").onclick = () => {
         var newAccount = AccountFactory();
-        accountList.push(newAccount.createNewAccount());
-        displayList(accountList);
+        var line=newAccount.createNewAccount();
+        var textArea = document.getElementById("textArea");
+        textArea.value += `Account Name: ${line.name}   Deposit: ${line.deposit}\n`;
     };
 };
-
-function displayList(list) {
-    const textArea = document.getElementById("textArea");
-    textArea.value = "";
-
-    for (const line of list) {
-        textArea.value += `Account Name: ${line.name}   Deposit: ${line.deposit}\n`;
-    }
-}
 
 
