@@ -1,0 +1,128 @@
+9-
+partA:
+var x = 1;
+function foo() {
+ console.log(x); //output undefined (x hoisted  in foo function without initial value at this point)
+ var y = 2;
+ function foo1() {
+ var y = 3;
+ if (!x) {
+ z = 4;
+ }
+ var x = 5;
+ console.log(x + y + z); // output -> 12  (x=5 y=3 z=4)
+ }
+
+ if(y==2){
+ var x = 3;
+ }
+ //console.log(z);
+ foo1(); /* Comment this call and see the changes */
+ console.log(x); //output -> 3 (x is local variant with initial value 3)
+ console.log(y); //output -> 2 (y is local variant with initial value 2)
+ console.log(z); //output -> 4 (z is Global with Value 4 )
+}
+console.log(x); // output -> 1 (x is Global variant with initial value 1)
+//console.log(y);
+//console.log(z);
+foo(); /* Comment this call and see the changes */
+console.log(x); // out -> 1 (x is Global variant with initial value 1)
+//console.log(y);
+//console.log(z);
+
+=========================================
+PartB:
+var x = 1;
+function foo() {
+ console.log(x); //output undefined (x hoisted  in foo function without initial value at this point)
+ var y = 2;
+ function foo1() {
+ var y = 3;
+ if (!x) {
+ z = 4;
+ }
+ var x = 5;
+ console.log(x + y + z); // output -> 12  (x=5 y=3 z=4)
+ }
+
+ if(y==2){
+ var x = 3;
+ }
+ //console.log(z);
+ //foo1(); /* Comment this call and see the changes */
+ console.log(x); //output -> 3 (x is local variant with initial value 3)
+ console.log(y); //output -> 2 (y is local variant with initial value 2)
+ console.log(z); //output -> Uncaught ReferenceError: z is not defined  (foo1 not called so z not defined)
+}
+console.log(x); // output -> 1 (x is Global variant with initial value 1)
+//console.log(y);
+//console.log(z);
+foo(); /* Comment this call and see the changes */
+console.log(x); // output -> no output
+//console.log(y);
+//console.log(z);
+===========================================
+PartC:
+var x = 1;
+function foo() {
+ console.log(x); //output undefined (x hoisted  in foo function without initial value at this point)
+ var y = 2;
+ function foo1() {
+ var y = 3;
+ if (!x) {
+ z = 4;
+ }
+ var x = 5;
+ console.log(x + y + z); // output -> 12  (x=5 y=3 z=4)
+ }
+
+ if(y==2){
+ var x = 3;
+ }
+ //console.log(z);
+ //foo1(); /* Comment this call and see the changes */
+ console.log(x); //output -> will not hit
+ console.log(y); //output -> will not hit
+ console.log(z); //output -> will not hit
+}
+console.log(x); // output -> 1 (x is Global variant with initial value 1)
+//console.log(y);
+//console.log(z);
+//foo(); /* Comment this call and see the changes */
+console.log(x); // output -> 1 (x is Global variant with initial value 1)
+//console.log(y);
+//console.log(z);
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+10-
+var x = 1;
+var y = 2;
+var z = 3;
+function foo() {
+ function foo1() {
+ console.log(`value of x: ${x}`);//2
+ console.log(`value of y: ${y}`);//3
+ console.log(`value of z: ${z}`);//4
+ }
+
+ var z = 4;
+ foo1();
+ var x = 3;
+
+ console.log(`value of x: ${x}`);//5
+ console.log(`value of y: ${y}`);//6
+}
+console.log(`value of y: ${y}`);//1
+foo();
+console.log(`value of x: ${x}`);//7
+console.log(`value of z: ${z}`);//8
+
+//output
+1-value of y: 2 //Global
+2-value of x: undefined //foo scope hoisted with no initial
+3-value of y: 2 //Global
+4-value of z: 4 //foo local variant with initial value =4
+5-value of x: 3 //foo local variant with initial value =3
+6-value of y: 2 //Global
+7-value of x: 1 //Global
+8-value of z: 3 //Global

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lab7 JS-2</title>
+        <link rel="shortcut icon" type="image/png" href="images/motta_jAu_icon.ico"/>
+    </head>
+<body>
+        <div>
+                <label for="accountName">Account Name:</label>
+                <input type="text" id="accountName" maxlength="50" size="50" required />
+            </div>
+    
+            <div>
+                <label for="deposit">Deposit:</label>
+                <input type="number" id="deposit" maxlength="10" size="10" required pattern="[0-9]{1, 10}" style="
+                margin-left: 47px;
+                width: 349px;
+            "/>
+            </div>
+    
+            <div>
+                <button type="button" id="addDeposit">Create new Account</button>
+            </div>
+    
+            <div>
+                <textarea id="textArea" cols="60" rows="20" disabled></textarea>
+            </div>
+            <script src="js/bankingAccounts.js" async defer></script>
+</body>
+</html>
