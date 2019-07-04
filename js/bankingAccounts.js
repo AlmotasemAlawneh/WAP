@@ -1,6 +1,9 @@
 
+
+/*jshint esversion: 6 */
+
 var AccountFactory = function () {
-    let name="", deposit=0; //private data
+    var name="", deposit=0; //private data
     function createAccount() { //private inner function
         this.name = document.getElementById("accountName").value;
         this.deposit = document.getElementById("deposit").value;
@@ -11,8 +14,8 @@ var AccountFactory = function () {
     }
 
     return { // three public functions are closures
-        createNewAccount: function () { return createAccount(); },
-    }
+        createNewAccount: function () { return createAccount(); }
+    };
 };
 
 window.onload = () => {

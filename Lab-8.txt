@@ -1,0 +1,38 @@
+2. 
+Based on code given
+a. How many global variables we have? (1)
+b. Are there any closures in the code? (No)
+c. What will be the outputs of the code?  Alert "outer1" and Alert "10" 
+d. How will you call function f1 from outside the module? you cant access IIFE inner function in this block
+//Code
+let module = (function(){
+ x=10; //Global 
+ let outer1="outer1";
+ function f1(arg1, arg2){
+ let func1 = function(){ return arg2;};
+ }
+})();
+alert(module);
+alert(x);
+=========================================================================
+4. What will the print out in console after following code is executed?
+Prior assignment(s) review
+function foo(x, y){
+ return function(z){
+ return x+y+z;
+ };
+}
+function bar (f){
+ return f(10);
+}
+var result = bar(foo(5,5));
+alert(result);
+(function(x,y){
+ "use strict";
+ console.log(this); //undefined (usig strict will prevent accessing Global from local Function)
+ console.log(x,y); 5,7
+ const obj = {x:2, foo:function(){console.log(this.x)}};
+ obj.foo(); //2
+ obj.bar = () =>console.log(this.x); //error x is not defined (arrow function will defined  Lexical Scoping just means that it uses this from the code that contains the Arrow Function.)
+ obj.bar();
+})(5,7);
