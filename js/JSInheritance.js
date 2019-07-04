@@ -49,21 +49,21 @@ function createBicyclePrototye() {
         Object.create(mountainBikePrototype)
     ];
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         textArea.value += `speed up \n`;
         for (let bike of bikeList) {
-            bike.speedup(2);
+            bike.speedup(i);
             textArea.value += `${bike.speed} \n`;
         }
         textArea.value += `speed down \n`;
         for (let bike of bikeList) {
-            bike.applyBrake(1);
+            bike.applyBrake(i-1);
             textArea.value += `${bike.speed} \n`;
         };
         textArea.value += `change gear\n`;
         for (let bike of bikeList) {
             if (bike.__proto__ == mountainBikePrototype) {
-                bike.setGear(3);
+                bike.setGear(i+1);
                 textArea.value += `${bike.gear} \n`;
             }
         }
