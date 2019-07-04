@@ -57,6 +57,7 @@ function createBicyclePrototye() {
         }
         textArea.value += `speed down \n`;
         for (let bike of bikeList) {
+            if(bike.speed != 0)
             bike.applyBrake(i-1);
             textArea.value += `${bike.speed} \n`;
         };
