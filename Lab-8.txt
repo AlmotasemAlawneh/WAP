@@ -1,9 +1,9 @@
 2. 
 Based on code given
 a. How many global variables we have? (1)
-b. Are there any closures in the code? (No)
+b. Are there any closures in the code? (No IIFE defined new Scoping)
 c. What will be the outputs of the code?  Alert "outer1" and Alert "10" 
-d. How will you call function f1 from outside the module? you cant access IIFE inner function in this block
+d. How will you call function f1 from outside the module? you cant access IIFE inner function in this block and f1 private inner function
 //Code
 let module = (function(){
  x=10; //Global 
