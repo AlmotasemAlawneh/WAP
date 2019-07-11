@@ -1,139 +1,136 @@
-/* jshint esversion: 6 */
-/* jshint browser: true */
+$(document).ready(function(){
 
-$(() => {
-    "use strict";
+    var initLoad = true;
+    
+    function getRandom(num){
+        var my_num = Math.floor(Math.random()*num);
+        return my_num;
+    }
+    // initialize each piece
+    //for (var i=0; i< divs.length; i++) {
+        
+    var generate = function generate(){
+        $.each( $("#puzzlearea div"), function( i, val ) {
+            //var div = divs[i];
 
-    const _matrixSize = 4;
-    const _blockSize = 100;
+            // calculate x and y for this piece
+            var x = ((i % 4) * 100) ;
+            var y = (Math.floor(i / 4) * 100) ;
 
-    const game = {
-        matrix: [],
-        preload: () => {
-            //Fill the matrix with empty space (0)
-            for (let i = 0; i < _matrixSize; i++) {
-                game.matrix.push([]);
-
-                for (let j = 0; j < _matrixSize; j++) {
-                    game.matrix[i].push(0);
-                }
-            }
-
-            //For each html piece, add the specified class and bind the events
-            $('#puzzlearea div')
-                .addClass('puzzlepiece')
-                .click(game.clickEvent)
-                .mouseover(game.hoverEvent)
-                .each((idx, el) => { //For each html piece, change the background and draw it on the screen
-                    const x = parseInt(idx % _matrixSize);
-                    const y = parseInt(idx / _matrixSize);
-                    const block = $(el).css('background', `url("background.jpg") -${_blockSize * x}px -${_blockSize * y}px`);
-                    game.drawBlock(block, x, y);
-                });
-        },
-        clickEvent: (e) => {
-            let $target = $(e.target);
-
-            //Store the current position of the piece
-            const oldPosition = {
-                x: $target.data('x'),
-                y: $target.data('y')
-            };
-
-            //From the old position, find a new one
-            const newPosition = game.findNearestEmptyPosition(oldPosition.x, oldPosition.y);
-            if (!newPosition) return; //If the new position is null, it's impossible to move
-
-            //Clear the old position on the matrix
-            game.matrix[oldPosition.y][oldPosition.x] = 0;
-
-            //Fill the matrix with the new position
-            game.drawBlock($target, newPosition.x, newPosition.y);
-        },
-        hoverEvent: (e) => {
-            const $target = $(e.target);
-            if (game.canMove($target)) {
-                $target.addClass('movablepiece');
-            } else {
-                $target.removeClass('movablepiece');
-            }
-        },
-        drawBlock: (block, x, y) => {
-            //Draw the piece on the screen
-            block.css({
-                'left': `${x * _blockSize}px`,
-                'top': `${y * _blockSize}px`,
+            // set basic style and background
+            $(this).addClass("puzzlepiece");
+            $(this).css({
+                "left": x + 'px',
+                "top": y + 'px',
+                "backgroundImage": 'url("background.jpg")',
+                "background-position-x": -x + 'px ',
+                "background-position-y": -y + 'px '
+                //"backgroundPosition": -x + 'px ' + (-y) + 'px'
             });
 
-            //Set it's position in the matrix
-            game.matrix[y][x] = 1;
-
-            //Store the position on the html div for future usage
-            block.data({
-                'x': x,
-                'y': y
-            });
-        },
-        canMove: (target) => {
-            const x = target.data('x');
-            const y = target.data('y');
-            return (game.findNearestEmptyPosition(x, y) != null);
-        },
-        findNearestEmptyPosition: (x, y) => {
-            if ((y > 0) && (game.matrix[y - 1][x] == 0)) {
-                return {        //0X0
-                    x: x,       //010
-                    y: y - 1    //000
-                };
-            } else if ((y < game.matrix.length - 1) && (game.matrix[y + 1][x] == 0)) {
-                return {        //000
-                    x: x,       //010
-                    y: y + 1    //0X0
-                };
-            } else if ((x > 0) && (game.matrix[y][x - 1] == 0)) {
-                return {        //000
-                    x: x - 1,   //X10
-                    y: y        //000
-                };
-            } else if ((x < game.matrix[y].length - 1) && (game.matrix[y][x + 1] == 0)) {
-                return {        //000
-                    x: x + 1,   //01X
-                    y: y        //000
-                }
-            } else {
-                return null;
-            }
-        },
-        shuffle: () => {
-            //Quantity of moves that should be executed
-            const randomMoves = Math.floor((Math.random() * (200 - 20)) + 20);
-
-            for (let i = 0; i < randomMoves; i++) {
-                //Take a random position in the matrix
-                const randomPosition = {
-                    x: Math.floor(Math.random() * _matrixSize),
-                    y: Math.floor(Math.random() * _matrixSize)
-                };
-
-                //If cannot move this random position, ignore
-                const newPosition = game.findNearestEmptyPosition(randomPosition.x, randomPosition.y);
-                if (!newPosition) continue;
-
-                //If can move, clear the matrix
-                game.matrix[randomPosition.y][randomPosition.x] = 0;
-
-                //Find the div on the screen
-                const div = $('#puzzlearea div').filter(function(i) {
-                                return $(this).data('x') == randomPosition.x && $(this).data('y') == randomPosition.y;
-                            });
-
-                //Redraw it with the new position
-                game.drawBlock(div, newPosition.x, newPosition.y);
-            }
+        });
+        checkWin();
+        if(initLoad) {
+            $('#puzzlearea').append("<div class='whitespot' style='left:300px;top:300px;'></div>");
         }
-    };
+        initLoad = false;
+    }
+    generate();
 
-    //Start the game
-    game.preload();
-    $('#shufflebutton').click(game.shuffle);
+    $("#shufflebutton").click(function(){
+        var pieceHolderArr = [];
+         function getRandom(){
+                var my_num = Math.floor((Math.random()*16));
+                if(pieceHolderArr.includes(my_num)){
+                    return getRandom(); // am gonna go recursive, appology for the memory :(
+                }
+                pieceHolderArr.push(my_num);
+                return my_num;
+            }
+
+         $.each( $("#puzzlearea div"), function( i, val ) {
+            var rand = getRandom();
+            console.log(i + " ->" + rand);
+            var x = ((rand % 4) * 100) ;
+            var y = (Math.floor(rand / 4) * 100) ;
+
+            if($(this).hasClass("whitespot")){
+                $(this).css({
+                    "left": x + 'px',
+                    "top": y + 'px'
+                });
+            }
+            else{
+                $(this).css({
+                    "left": x + 'px',
+                    "top": y + 'px',
+                    "cursor":'pointer'
+                });
+            }
+        });
+         checkWin();
+    });
+
+    $("#puzzlearea div").click(move);
+
+    function move(){
+        var top = parseInt($(this).css("top"));
+        var left = parseInt($(this).css("left"));
+        var current = $(this);
+
+        var rightElt = $('#puzzlearea div').filter(function () { 
+            return  $(this).css('left') ==  left+100+'px' && $(this).css('top') ==  top+'px';
+        });
+        var leftElt = $('#puzzlearea div').filter(function () { 
+            return  $(this).css('left') ==  left-100+'px' && $(this).css('top') ==  top+'px';
+        });
+        var topElt = $('#puzzlearea div').filter(function () { 
+            return  $(this).css('top') ==  top-100+'px' && $(this).css('left') ==  left+'px';
+        });
+        var bottomElt = $('#puzzlearea div').filter(function () { 
+            return  $(this).css('top') ==  top+100+'px' && $(this).css('left') ==  left+'px';
+        });
+        
+        //check right
+        if(rightElt.hasClass("whitespot") ){
+            current.css({'left':left+100+'px'}).delay(400);
+            $(".whitespot").css({'left':left+'px'});
+        }
+        else if(leftElt.hasClass("whitespot") ){
+            current.css({'left':left-100+'px'});
+            $(".whitespot").css({'left':left+'px'});
+        }
+        else if(topElt.hasClass("whitespot")){
+            current.css({'top':top-100+'px'});
+            $(".whitespot").css({'top':top+'px'});
+        }
+        else if(bottomElt.hasClass("whitespot")){
+            current.css({'top':top+100+'px'});
+            $(".whitespot").css({'top':top+'px'});
+        }
+       checkWin(); 
+    }
+    
+    function checkWin(){
+        var win = true;
+
+        $.each( $("#puzzlearea div"), function( i, val ) {
+            if($(this).hasClass("whitespot") )
+                return;
+
+            var bgx = -1 * parseInt($(this).css("background-position-x"));
+            var bgy = -1 * parseInt($(this).css("background-position-y"));
+            var l = parseInt(($(this).css("left")));
+            var t = parseInt(($(this).css("top")));
+            if( bgx != l || bgy != t ){
+                win = false;
+                return;
+            }           
+        });
+        if (!initLoad && win) {
+            alert("You Are a winner!");
+        }
+    }
+    
 });
+
